@@ -7,6 +7,7 @@ from keras import backend as K
 from keras.layers.normalization import BatchNormalization
 from keras.preprocessing import image
 from keras.regularizers import l2
+from keras.optimizers import SGD
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -146,7 +147,7 @@ print("Compiling model...")
 
 alexnet.compile(
     loss= 'categorical_crossentropy',
-    optimizer='rmsprop', 
+    optimizer='adam', 
     metrics=['accuracy'])
 
 alexnet.fit_generator(
